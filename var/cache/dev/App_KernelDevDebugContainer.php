@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerFrIPPd4\App_KernelDevDebugContainer([
     'container.build_hash' => 'FrIPPd4',
-    'container.build_id' => '0f28d0b9',
-    'container.build_time' => 1743503163,
+    'container.build_id' => 'ddb07868',
+    'container.build_time' => 1743503373,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerFrIPPd4');
