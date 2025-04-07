@@ -354,6 +354,35 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Entity" class="App\Entity" abstract="true">
+      <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
+    </service>
+    <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.ZyP9f7K.App\Controller\HomeController"/>
+      </call>
+    </service>
+    <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type" csrf_token_id="%.form.type_extension.csrf.token_id%"/>
+    </service>
+    <service id="App\Repository\IngredientsRepository" class="App\Repository\IngredientsRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\RecipeIngredientsRepository" class="App\Repository\RecipeIngredientsRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\RecipesRepository" class="App\Repository\RecipesRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
       <tag priority="100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">controller.argument_value_resolver</tag>
@@ -1326,9 +1355,11 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\RegistrationFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3920,7 +3951,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.9QYCuGc"/>
+      <argument type="service" id=".service_locator.wGEldOu"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4017,7 +4048,9 @@
       <argument>validators</argument>
       <argument type="service" id="form.server_params"/>
       <argument>%form.type_extension.csrf.field_attr%</argument>
-      <argument>submit</argument>
+      <argument type="collection">
+        <argument key="App\Form\RegistrationFormType">submit</argument>
+      </argument>
     </service>
     <service id="validator.builder" class="Symfony\Component\Validator\ValidatorBuilder">
       <call method="setConstraintValidatorFactory">
@@ -5221,7 +5254,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.GIuJv7e"/>
+      <argument type="service" id=".service_locator.39mLi8P"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -7250,6 +7283,19 @@
       <argument type="service" id="maker.file_manager"/>
       <argument type="service" id="maker.generator"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\IngredientsRepository" class="App\Repository\IngredientsRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\IngredientsRepository" class="App\Repository\IngredientsRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RecipeIngredientsRepository" class="App\Repository\RecipeIngredientsRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\RecipeIngredientsRepository" class="App\Repository\RecipeIngredientsRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RecipesRepository" class="App\Repository\RecipesRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\RecipesRepository" class="App\Repository\RecipesRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.pRu6x_4" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7956,9 +8002,10 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.9QYCuGc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.wGEldOu" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service_closure" id="form.type.form"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service_closure" id="form.type.file"/>
@@ -8091,9 +8138,14 @@
         <argument key="turbo.doctrine.event_listener" type="service_closure" id="turbo.doctrine.event_listener"/>
       </argument>
     </service>
-    <service id=".service_locator.GIuJv7e" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.39mLi8P" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="App\Repository\IngredientsRepository" type="service_closure" id="App\Repository\IngredientsRepository"/>
+        <argument key="App\Repository\RecipeIngredientsRepository" type="service_closure" id="App\Repository\RecipeIngredientsRepository"/>
+        <argument key="App\Repository\RecipesRepository" type="service_closure" id="App\Repository\RecipesRepository"/>
+        <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
     </service>
     <service id=".service_locator.BxSdgVt" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -8329,6 +8381,28 @@
         <argument key="translation.loader.json" type="service_closure" id="translation.loader.json"/>
       </argument>
     </service>
+    <service id=".service_locator.ZyP9f7K" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="router" type="service_closure" id="router.default" on-invalid="ignore"/>
+        <argument key="request_stack" type="service_closure" id="request_stack" on-invalid="ignore"/>
+        <argument key="http_kernel" type="service_closure" id="http_kernel" on-invalid="ignore"/>
+        <argument key="serializer" type="service_closure" id="debug.serializer" on-invalid="ignore"/>
+        <argument key="security.authorization_checker" type="service_closure" id="security.authorization_checker" on-invalid="ignore"/>
+        <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
+        <argument key="form.factory" type="service_closure" id="form.factory" on-invalid="ignore"/>
+        <argument key="security.token_storage" type="service_closure" id="security.token_storage" on-invalid="ignore"/>
+        <argument key="security.csrf.token_manager" type="service_closure" id="security.csrf.same_origin_token_manager" on-invalid="ignore"/>
+        <argument key="parameter_bag" type="service_closure" id="parameter_bag" on-invalid="ignore"/>
+        <argument key="web_link.http_header_serializer" type="service_closure" id="web_link.http_header_serializer" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ZyP9f7K.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
+      <argument>App\Controller\HomeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.ZyP9f7K" method="withContext"/>
+    </service>
     <service id=".service_locator.7jukgan" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8401,6 +8475,10 @@
       <argument type="collection">
         <argument key="reverse_container" type="service_closure" id="reverse_container" on-invalid="ignore_uninitialized"/>
       </argument>
+    </service>
+    <service id=".service_locator.GIuJv7e" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
     </service>
     <service id=".service_locator.DOrA4Nm" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -8510,6 +8588,7 @@
       <call method="allowControllers">
         <argument type="collection">
           <argument>App\Kernel</argument>
+          <argument>App\Controller\HomeController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -9951,5 +10030,6 @@
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.n_ENPtW" alias=".service_locator.zHyJIs5"/>
+    <service id=".service_locator.9nvaCmp" alias=".service_locator.ZyP9f7K"/>
   </services>
 </container>

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche d'idées{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="cadre col-md-4 offset-md-4 text-center d-flex align-items-center justify-content-center">Recherche d'idées</div>
+        </div>
+
+
+        <div class="cadre row mt-5">
+            <div>
+                Partie ingrédients
+            </div>
+            <div class="cadre col-md-4 offset-md-1 d-flex row align-items-center">
+                <div class="cadre text-center">
+                    Liste des ingrédients
+                </div>
+                <div class="cadre d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-secondary">Ajouter</button>
+                </div>
+            </div>
+
+
+
+            <div class="cadre col-md-4 offset-md-2">
+                Mes ingrédients
+
+                <div class="cadre d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-secondary">Effacer</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cadre row mt-5">
+            <div class="text-center">
+                Recettes correspondantes
+            </div>
+
+            <div class="row justify-content-center text-center">
+                <div class="cadre col-md-4">Privées</div>
+
+                <div class="cadre col-md-4">Publiques</div>
+            </div>
+
+
+        </div>
+    
+
+    </div>
+    
+{% endblock %}

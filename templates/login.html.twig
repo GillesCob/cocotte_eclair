@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="p-4 rounded shadow bg-white w-100" style="max-width: 400px;">
+        <h2 class="text-center mb-4">Connexion</h2>
+        <form>
+            <div class="mb-3">
+                <label for="email" class="form-label">Adresse Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Entrez votre email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de Passe</label>
+                <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Se Connecter</button>
+            </div>
+        </form>
+        <div class="text-center mt-3">
+            <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
+        </div>
+        <div class="text-center mt-3">
+            <a href="{{ path('register') }}" class="text-decoration-none">Pas de compte ? Inscrivez-vous</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

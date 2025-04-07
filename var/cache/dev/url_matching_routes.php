@@ -15,6 +15,16 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/accueil' => [[['_route' => 'home_page', '_controller' => 'App\\Controller\\HomeController::home'], null, null, null, false, false, null]],
+        '/vos_recettes' => [[['_route' => 'recipes', '_controller' => 'App\\Controller\\HomeController::recipes'], null, null, null, false, false, null]],
+        '/recettes_publiques' => [[['_route' => 'public_recipes', '_controller' => 'App\\Controller\\HomeController::public_recipes'], null, null, null, false, false, null]],
+        '/courses' => [[['_route' => 'shopping', '_controller' => 'App\\Controller\\HomeController::shopping'], null, null, null, false, false, null]],
+        '/semaine' => [[['_route' => 'week', '_controller' => 'App\\Controller\\HomeController::week'], null, null, null, false, false, null]],
+        '/recherche' => [[['_route' => 'search', '_controller' => 'App\\Controller\\HomeController::search'], null, null, null, false, false, null]],
+        '/ajouter' => [[['_route' => 'add_recipe', '_controller' => 'App\\Controller\\HomeController::add_recipe'], null, null, null, false, false, null]],
+        '/voir_recette' => [[['_route' => 'see_recipe', '_controller' => 'App\\Controller\\HomeController::see_recipe'], null, null, null, false, false, null]],
+        '/connexion' => [[['_route' => 'login', '_controller' => 'App\\Controller\\HomeController::login'], null, null, null, false, false, null]],
+        '/inscription' => [[['_route' => 'register', '_controller' => 'App\\Controller\\HomeController::register'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

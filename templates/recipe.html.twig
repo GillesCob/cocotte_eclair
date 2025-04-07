@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}Recette{% endblock %}
+{% block body %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="cadre col-md-4 offset-md-4 text-center d-flex align-items-center justify-content-center"> Nom Recette </div>
+        </div>
+
+        <div class="cadre d-flex justify-content-center mt-5">
+            <button type="button" class="btn btn-outline-secondary">Ajouter aux courses</button>
+        </div>
+
+        <div class="row mt-5">
+            <div class="cadre  col-md-3"> Liste des ingrédients</div>
+            <div class="cadre col-md-8 offset-md-1"> Recette de cuisine étape par étape</div>
+        </div>
+
+        <div class="cadre d-flex justify-content-center mt-3">
+            <button type="button" class="btn btn-outline-secondary">Modifier la recette</button>
+        </div>
+        
+
+    </div>
+
+{% endblock %}

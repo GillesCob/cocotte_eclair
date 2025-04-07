@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b47cfbb6ad5c114e2ed2ad0b8d7ccdb35ddd2906',
+        'reference' => '5880e6ecd4b55ab2bd994c584c13bcb471f35e6f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b47cfbb6ad5c114e2ed2ad0b8d7ccdb35ddd2906',
+            'reference' => '5880e6ecd4b55ab2bd994c584c13bcb471f35e6f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -660,7 +660,7 @@
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/debug-bundle',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'symfony/dependency-injection' => array(
             'pretty_version' => 'v7.2.5',

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos recettes{% endblock %}
+
+{% block body %}
+
+
+
+    <!-- Contenu principal -->
+    <div class="container">
+        <div class="cadre col-md-4 offset-md-4 text-center"> Mes Recette </div>
+
+        <div class="cadre mt-5 d-flex">
+            <!-- responsive à corriger -->
+            <a href="{{ path('recipes') }}" class="my_btn btn btn-outline-secondary col-md-3 offset-md-2">Vos recettes</button>
+            <a href="{{ path('public_recipes') }}" class="btn btn-outline-secondary col-md-3 offset-md-2">Recettes publiques</a>
+        </div>
+
+        <div class="cadre mt-5 text-center">Filtres</div>
+
+        <div class="view">
+            
+            <a href="{{ path('recipes') }}">
+                <div class="block"></div>
+            </a>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <!-- Fin du contenu principal -->
+
+{% endblock %}

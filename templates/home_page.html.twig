@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}accueil{% endblock %}
+
+{% block body %}
+    <!-- Contenu principal -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Colonne vide à gauche -->
+            <div class="col-md-1"></div>
+
+            <!-- Contenu texte sur 7 colonnes -->
+            <div class="col-md-7 d-flex flex-column justify-content-center align-items-center">
+                <div class="text_justify">
+                    Ajoutez vos recettes préférées, leurs ingrédients et dites adieu au casse-tête de savoir quoi cuisiner pour les jours à venir
+                </div>
+                <a href="{{ path('add_recipe') }}" class="btn btn-outline-secondary mt-3">Ajouter une recette</a>
+
+            </div>
+
+            <!-- Photos sur les 4 dernières colonnes -->
+            <div class="col-md-4">
+                <div class="photo col-md-6" style="background-image: url('{{ asset('images/repas1.png') }}');"></div>
+                <div class="photo col-md-6 offset-md-6" style="background-image: url('{{ asset('images/repas2.png') }}');"></div>
+                <div class="photo col-md-6" style="background-image: url('{{ asset('images/repas3.png') }}');"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin du contenu principal -->
+{% endblock %}
